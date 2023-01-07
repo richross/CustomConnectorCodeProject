@@ -1,16 +1,17 @@
-// See https://aka.ms/new-console-template for more information
+﻿// See https://aka.ms/new-console-template for more information
 using System.Net.Http.Headers;
 
 //variables:
 //CustomConnectorUrl(Required) - url of the api used in the custom connector.
-string CustomConnectorUrl = "https://conferenceapi.azurewebsites.net/sessions";// "[REPLACE WITH YOUR CUSTOM CONNECTOR URL]";
+string CustomConnectorUrl = "https://phlapim.azure-api.net/conference/sessions";// "[REPLACE WITH YOUR CUSTOM CONNECTOR URL]";
 
 //OperationId(Required) - the operation id for the custom connector.
 string OperationId = "GetSessions";//"[REPLACE WITH YOUR OPERATION ID]";
 
+#region OcpApimSubsKey
 //Ocp-Apim-Subscription-Key(Optional) - the subscription key for the custom connector if using a service like API-M.
-string OcpApimSubscriptionKey = "[REPLACE WITH YOUR OCP APIM SUBSCRIPTION KEY]";
-
+string OcpApimSubscriptionKey = "5003d038b3b84b499d8fca900b0b61e2";
+#endregion
 
 try
 {
@@ -21,7 +22,7 @@ try
     //ADD ANY ADDITIONAL HEADERS HERE
 
     //API-Management Subscription Key - uncomment if using API-M
-    // requestMessage.Headers.Add("Ocp-Apim-Subscription-Key", OcpApimSubscriptionKey);
+    requestMessage.Headers.Add("Ocp-Apim-Subscription-Key", OcpApimSubscriptionKey);
 
     //create a new script object
     var myScript = new Script();
